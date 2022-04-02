@@ -29,7 +29,6 @@ def show(matrix):
               ncol=1,  # Количество столбцов
               facecolor='oldlace',  # Цвет области
               edgecolor='r',  # Цвет крайней линии
-              title='Прямые',  # Заголовок
               title_fontsize='20',  # Размер шрифта
               loc="upper right"
               )
@@ -52,6 +51,10 @@ def show(matrix):
         inac_exp += round(pow(matrix[i, 1] - (exp[0] * math.exp(matrix[i, 0] * exp[1])), 2), 2)
         inac_qua += round(
             pow(matrix[i, 1] - ((qua[0] * matrix[i, 0] * matrix[i, 0]) + (qua[1] * matrix[i, 0]) + qua[2]), 2), 2)
+    print("Погрешность линейной функции: ", inac_lin)
+    print("Погрешность степенной функции: ", inac_sed)
+    print("Погрешность показательной функции: ", inac_exp)
+    print("Погрешность квадратичной функции: " , inac_qua)
 
     if (inac_lin == min(inac_qua, inac_lin, inac_exp, inac_sed)):
         print("В данной задаче лучшей аппроксимирующей функцией является линейная функция")
@@ -214,10 +217,10 @@ def qua_func(matrix):
     # print(np.around(result, 2))
     return np.around(result, 2)
 
-
 def main():
     # Таблица значений некоторой функциональной зависимости
-    matrix = np.array([[1, 1], [2, 1.5], [3, 3], [4, 4.5], [5, 7], [6, 8.5]])
+    #matrix = np.array([[1, 1], [2, 1.5], [3, 3], [4, 4.5], [5, 7], [6, 8.5]])
+    matrix = np.array([[10, 1.06], [20, 1.33], [30, 1.52], [40, 1.68], [50, 1.81], [60, 1.91]])
     show(matrix)  # Вывод точек
 
 
